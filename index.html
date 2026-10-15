@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nex Growth | Digital Marketing & Growth Agency in Cairo & Giza</title>
+<meta name="description" content="Nex Growth is a digital marketing agency in Cairo and Giza offering Meta Ads, social media management, lead generation, analytics and growth strategy.">
+<meta name="theme-color" content="#10110F">
+<!-- TODO (production): replace the og:url and og:image with your final domain and a real 1200x630 sharing image. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nex Growth | Digital Marketing & Growth">
+<meta property="og:description" content="Practical marketing services, transparent reporting, and growth goals that fit your business.">
+<meta property="og:locale" content="en_EG">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23B8FF38'/%3E%3Cpath d='M9 24V8l14 16V8' fill='none' stroke='%2310110F' stroke-width='3.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#10110F;--bg2:#171916;--card:#1D201B;--lime:#B8FF38;--text:#F5F7F0;--muted:#A7AEA0;--line:rgba(245,247,240,.1);--r:18px;--nav:72px}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav) + 12px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p{margin:0}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1140px,100% - 40px);margin-inline:auto}
+section{padding:84px 0}
+.alt{background:var(--bg2)}
+h2{font-size:clamp(1.75rem,4.2vw,2.75rem);line-height:1.15;letter-spacing:-.02em;font-weight:800;max-width:21ch}
+.lead{color:var(--muted);max-width:60ch;margin-top:16px;font-size:1.05rem}
+.head{margin-bottom:44px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;border-radius:999px;font:inherit;font-weight:700;border:1.5px solid transparent;cursor:pointer;transition:transform .2s,background .2s,border-color .2s,color .2s}
+.btn-p{background:var(--lime);color:#10110F}
+.btn-p:hover{transform:translateY(-2px);background:#caff63}
+.btn-s{border-color:var(--line);color:var(--text);background:transparent}
+.btn-s:hover{border-color:var(--lime);color:var(--lime)}
+.lime{color:var(--lime)}
+
+/* nav */
+header{position:fixed;inset:0 0 auto;z-index:50;height:var(--nav);background:rgba(16,17,15,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:100%}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.06em}
+.logo svg{width:34px;height:34px}
+nav ul{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0}
+nav a:not(.btn){padding:10px 12px;border-radius:8px;color:var(--muted);font-size:.95rem;transition:color .2s}
+nav a:not(.btn):hover{color:var(--lime)}
+nav .btn{min-height:42px;padding:0 20px;margin-left:8px}
+.burger{display:none;width:48px;height:48px;background:none;border:1px solid var(--line);border-radius:12px;color:var(--text);cursor:pointer}
+.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:currentColor;margin:auto;position:relative;transition:.25s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded=true] span{background:transparent}
+.burger[aria-expanded=true] span::before{top:0;transform:rotate(45deg)}
+.burger[aria-expanded=true] span::after{top:0;transform:rotate(-45deg)}
+
+/* hero */
+.hero{padding:calc(var(--nav) + 72px) 0 80px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+h1{font-size:clamp(2.4rem,6.6vw,4.6rem);line-height:1.04;letter-spacing:-.035em;font-weight:800}
+.hero .lead{font-size:1.15rem;max-width:52ch;margin-top:22px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.note{margin-top:22px;color:var(--muted);font-size:.95rem;max-width:52ch;padding-left:14px;border-left:2px solid var(--lime)}
+.engine{position:relative;border:1px solid var(--line);background:var(--card);border-radius:24px;padding:28px;min-height:360px;display:flex;flex-direction:column;justify-content:flex-end}
+.steps{display:flex;align-items:flex-end;gap:12px;height:210px;margin-bottom:24px}
+.steps i{flex:1;border-radius:10px 10px 4px 4px;background:#2a2e27;transform-origin:bottom;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.steps i:nth-child(1){height:24%}.steps i:nth-child(2){height:42%;animation-delay:.12s}.steps i:nth-child(3){height:62%;animation-delay:.24s}
+.steps i:nth-child(4){height:100%;background:var(--lime);animation-delay:.36s}
+@keyframes rise{from{transform:scaleY(.05);opacity:0}}
+.engine p{font-weight:700;font-size:1.1rem}
+.engine span{display:block;color:var(--muted);font-size:.92rem;font-weight:400;margin-top:6px}
+
+/* strip */
+.strip{padding:0;background:var(--bg2);border-block:1px solid var(--line)}
+.strip ul{list-style:none;margin:0;padding:22px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.strip li{display:flex;align-items:center;gap:10px;font-weight:600;font-size:.95rem}
+.strip li::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--lime)}
+
+/* cards */
+.grid{display:grid;gap:20px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:rgba(184,255,56,.45)}
+.ico{width:48px;height:48px;border-radius:12px;background:rgba(184,255,56,.1);display:grid;place-items:center;margin-bottom:20px}
+.ico svg{width:24px;height:24px;stroke:var(--lime);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.2rem;margin-bottom:10px;letter-spacing:-.01em}
+.card p{color:var(--muted);font-size:.97rem}
+
+/* process */
+.proc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.proc li{position:relative;padding-top:64px;counter-increment:s}
+.proc li::before{content:counter(s);position:absolute;top:0;left:0;width:48px;height:48px;border-radius:50%;background:var(--lime);color:#10110F;font-weight:800;display:grid;place-items:center}
+.proc li::after{content:"";position:absolute;top:24px;left:60px;right:-8px;height:1px;background:linear-gradient(90deg,var(--lime),var(--line))}
+.proc li:last-child::after{display:none}
+.proc h3{font-size:1.2rem;margin-bottom:8px}
+.proc p{color:var(--muted);font-size:.97rem}
+
+/* cta banner */
+.banner{padding:0 0 84px}
+.banner-in{background:var(--lime);color:#10110F;border-radius:28px;padding:clamp(32px,6vw,64px);display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:center}
+.banner h2{max-width:20ch;color:#10110F}
+.banner p{margin-top:12px;max-width:52ch;font-weight:500}
+.btn-d{background:#10110F;color:var(--lime)}
+.btn-d:hover{transform:translateY(-2px);background:#000}
+
+/* form */
+.form-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
+form{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(22px,4vw,36px);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.f{display:flex;flex-direction:column;gap:7px}
+.f.full{grid-column:1/-1}
+label{font-weight:600;font-size:.92rem}
+input,select,textarea{font:inherit;color:var(--text);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;min-height:48px;width:100%}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 14px) 21px;background-size:6px 6px;background-repeat:no-repeat;padding-right:38px}
+textarea{min-height:120px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,56,.2)}
+.err{color:#ff8f8f;font-size:.85rem;min-height:1.2em}
+.f.bad input,.f.bad select{border-color:#ff8f8f}
+.hint{grid-column:1/-1;color:var(--muted);font-size:.9rem}
+#status{grid-column:1/-1;font-size:.92rem;min-height:1.3em}
+.side p{color:var(--muted);margin-top:16px}
+
+/* faq */
+.faq{max-width:820px}
+.faq details{border:1px solid var(--line);border-radius:var(--r);background:var(--card);margin-bottom:12px;transition:border-color .2s}
+.faq details[open]{border-color:rgba(184,255,56,.45)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-weight:700;display:flex;justify-content:space-between;gap:16px;align-items:center;border-radius:var(--r)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.5rem;line-height:1;color:var(--lime);transition:transform .25s;flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 24px 22px;color:var(--muted)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:40px 0 48px;background:var(--bg2)}
+.foot{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+.foot small{display:block;color:var(--muted);margin-top:8px}
+.foot ul{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;margin:0;padding:0}
+.foot a:not(.logo){color:var(--muted)}
+.foot a:not(.logo):hover{color:var(--lime)}
+
+/* floating whatsapp + toast */
+.wa{position:fixed;right:16px;bottom:16px;z-index:40;display:none;width:56px;height:56px;border-radius:50%;background:var(--lime);color:#10110F;border:0;cursor:pointer;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.45)}
+.wa svg{width:28px;height:28px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);z-index:60;background:var(--card);border:1px solid var(--lime);border-radius:14px;padding:14px 20px;width:min(440px,100% - 32px);font-size:.93rem;opacity:0;pointer-events:none;transition:.3s}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1020px){.g4,.proc{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}.proc li::after{display:none}.hero-grid,.form-grid{grid-template-columns:1fr}.engine{min-height:300px}}
+@media(max-width:860px){
+ .burger{display:block}
+ nav{position:fixed;inset:var(--nav) 0 auto;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 20px 24px;display:none}
+ nav.open{display:block}
+ nav ul{flex-direction:column;align-items:stretch;gap:2px}
+ nav a:not(.btn){display:block;padding:14px 8px;font-size:1.05rem}
+ nav .btn{margin:12px 0 0;width:100%}
+ .wa{display:grid}
+ .strip ul{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+ section{padding:60px 0}
+ .g3,.g4,.proc{grid-template-columns:1fr}
+ .proc li{padding:0 0 0 68px;min-height:56px}
+ form{grid-template-columns:1fr}
+ .cta-row .btn,.banner .btn{width:100%}
+ .strip ul{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="wrap bar">
+  <a href="#top" class="logo" aria-label="Nex Growth home">
+   <svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#B8FF38"/><path d="M10 25V9l14 16V9" fill="none" stroke="#10110F" stroke-width="3.6" stroke-linejoin="round"/></svg>
+   NEX GROWTH
+  </a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+  <nav id="menu" aria-label="Main">
+   <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#process">Our Process</a></li>
+    <li><a href="#why">Why Nex Growth</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="btn btn-p">Let's Talk</a></li>
+   </ul>
+  </nav>
+ </div>
+</header>
+
+<main id="top">
+<section class="hero">
+ <div class="wrap hero-grid">
+  <div>
+   <h1>Turn Your Marketing Into a <span class="lime">Growth Engine.</span></h1>
+   <p class="lead">Nex Growth helps businesses build a stronger digital presence, reach the right audience, and turn marketing activity into measurable opportunities.</p>
+   <div class="cta-row">
+    <button type="button" class="btn btn-p" data-wa="Hello Nex Growth, I'd like to book a strategy call.">Book a Strategy Call</button>
+    <a href="#services" class="btn btn-s">Explore Our Services</a>
+   </div>
+   <p class="note">Focused on practical execution, transparent reporting, and growth goals that fit your business.</p>
+  </div>
+  <div class="engine" aria-label="Our approach">
+   <div class="steps" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+   <p>Plan, launch, measure, improve.<span>Each step builds on the data from the last, with scope and deliverables agreed up front.</span></p>
+  </div>
+ </div>
+</section>
+
+<div class="strip">
+ <div class="wrap"><ul>
+  <li>Strategy-Led Planning</li><li>Clear Scope and Deliverables</li><li>Measured Campaign Performance</li><li>Cairo &amp; Giza, Egypt</li>
+ </ul></div>
+</div>
+
+<section id="services">
+ <div class="wrap">
+  <div class="head rv"><h2>Practical Marketing Services. One Clear Direction.</h2>
+  <p class="lead">We build a service mix around your goals, audience, and stage of growth—not a one-size-fits-all checklist.</p></div>
+  <div class="grid g3">
+   <article class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h3l6 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M17 9a4 4 0 0 1 0 6"/></svg></div><h3>Paid Advertising</h3><p>Campaign planning, Meta Ads management, audience testing, creative testing, and ongoing optimization based on agreed objectives.</p></article>
+   <article class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="3"/><path d="M8 21l3-3M8 9h8M8 13h5"/></svg></div><h3>Social Media Management</h3><p>Content planning, graphic design, captions, publishing schedules, and consistent communication aligned with your brand.</p></article>
+   <article class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4-2v-4z"/></svg></div><h3>Lead Generation</h3><p>Campaigns and inquiry flows designed to attract relevant prospects and help your team follow up more consistently.</p></article>
+   <article class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Marketing Analytics</h3><p>Campaign reporting, performance indicators, tracking recommendations, and practical insights to support better decisions.</p></article>
+   <article class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div><h3>Creative &amp; Content Planning</h3><p>Clear messaging and creative direction to help your brand communicate its offer and make the next action easy to understand.</p></article>
+   <article class="card rv"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></div><h3>Growth Strategy</h3><p>Prioritization of channels, offers, and experiments based on your business model, available resources, and goals.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="industries" class="alt">
+ <div class="wrap">
+  <div class="head rv"><h2>Different Industries. Business-First Thinking.</h2>
+  <p class="lead">Our approach adapts to the customer, sales cycle, and objectives of each business. These are examples of the sectors we can work with—not an exclusive list.</p></div>
+  <div class="grid g4">
+   <article class="card rv"><h3>Healthcare &amp; Clinics</h3><p>Build digital visibility and manage relevant inquiries with careful, responsible communication.</p></article>
+   <article class="card rv"><h3>Construction &amp; Real Estate</h3><p>Support project inquiries, service awareness, and business-to-business lead generation.</p></article>
+   <article class="card rv"><h3>E-commerce &amp; Retail</h3><p>Promote products, test campaigns, and support customer acquisition goals.</p></article>
+   <article class="card rv"><h3>Local &amp; B2B Services</h3><p>Clarify your offer, reach potential customers, and build a more consistent inquiry pipeline.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="process">
+ <div class="wrap">
+  <div class="head rv"><h2>A Simple Process, Built for Action.</h2></div>
+  <ol class="proc">
+   <li class="rv"><h3>Discover</h3><p>Understand the business, offer, customers, current activity, and constraints.</p></li>
+   <li class="rv"><h3>Plan</h3><p>Set priorities, deliverables, budget, timeline, and success indicators together.</p></li>
+   <li class="rv"><h3>Execute</h3><p>Launch approved campaigns and content with clear ownership and communication.</p></li>
+   <li class="rv"><h3>Improve</h3><p>Review results, identify gaps, and agree on evidence-led improvements.</p></li>
+  </ol>
+ </div>
+</section>
+
+<section id="why" class="alt">
+ <div class="wrap">
+  <div class="head rv"><h2>Marketing Should Serve the Business Goal.</h2>
+  <p class="lead">We focus on useful execution and clear communication—not inflated promises. The right plan depends on your offer, audience, budget, and ability to follow up.</p></div>
+  <div class="grid g4">
+   <article class="card rv"><h3>Transparent Deliverables</h3><p>Know what is included, what is not, and what each stage requires.</p></article>
+   <article class="card rv"><h3>Clear Ad Spend Separation</h3><p>Advertising budgets are distinct from agency management fees.</p></article>
+   <article class="card rv"><h3>Honest Reporting</h3><p>We report what the data shows and do not invent results or case studies.</p></article>
+   <article class="card rv"><h3>Built Around Your Context</h3><p>Plans are shaped by your market, resources, and sales process.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="banner" style="padding-top:84px">
+ <div class="wrap"><div class="banner-in rv">
+  <div><h2>Ready to Create Your Next Growth Opportunity?</h2>
+  <p>Tell us where your business is today and what you want to achieve. We'll discuss your needs and identify a practical next step.</p></div>
+  <a href="#contact" class="btn btn-d">Start a Conversation</a>
+ </div></div>
+</section>
+
+<section id="contact" style="padding-top:0">
+ <div class="wrap form-grid">
+  <div class="side rv"><h2>Tell Us About Your Business.</h2>
+  <p>Share a few details and choose how you'd like to continue. We'll use your information to respond to your inquiry.</p></div>
+  <form id="form" novalidate class="rv">
+   <div class="f"><label for="name">Full name *</label><input id="name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
+   <div class="f"><label for="biz">Business name *</label><input id="biz" name="biz" autocomplete="organization" required><span class="err" aria-live="polite"></span></div>
+   <div class="f full"><label for="phone">Phone / WhatsApp number *</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required><span class="err" aria-live="polite"></span></div>
+   <div class="f"><label for="industry">Industry *</label>
+    <select id="industry" name="industry" required><option value="">Select industry</option><option>Healthcare &amp; Clinics</option><option>Construction &amp; Real Estate</option><option>E-commerce &amp; Retail</option><option>Local Services</option><option>B2B Services</option><option>Education</option><option>Hospitality &amp; Food</option><option>Other</option></select><span class="err" aria-live="polite"></span></div>
+   <div class="f"><label for="service">Service needed *</label>
+    <select id="service" name="service" required><option value="">Select service</option><option>Paid Advertising</option><option>Social Media Management</option><option>Lead Generation</option><option>Marketing Analytics</option><option>Growth Strategy</option><option>Not Sure Yet</option></select><span class="err" aria-live="polite"></span></div>
+   <div class="f full"><label for="msg">Business goals / message (optional)</label><textarea id="msg" name="msg"></textarea></div>
+   <p class="hint">Clicking the button opens WhatsApp with your details filled in. Press Send in WhatsApp to submit your inquiry; nothing is sent until you do.</p>
+   <button type="submit" class="btn btn-p full" style="grid-column:1/-1">Send via WhatsApp</button>
+   <p id="status" role="status"></p>
+  </form>
+ </div>
+</section>
+
+<section id="faq" class="alt">
+ <div class="wrap">
+  <div class="head rv"><h2>Common questions.</h2></div>
+  <div class="faq rv">
+   <details><summary>Do you work with only one industry?</summary><p>No. Nex Growth is positioned as a general digital marketing agency. We adapt the plan to the business and its audience rather than limiting the service to one sector.</p></details>
+   <details><summary>Is the advertising budget included in your fee?</summary><p>No. The advertising budget is separate from management fees. The budget and payment setup should be agreed with the client before campaigns launch.</p></details>
+   <details><summary>Can you guarantee leads or sales?</summary><p>No responsible agency can guarantee a specific result in every situation. We agree on deliverables and measurement, then use campaign data to improve performance.</p></details>
+   <details><summary>Do you have a portfolio or case studies?</summary><p>This page does not claim past client results or display fabricated case studies. We can discuss your needs and define a suitable scope before work begins.</p></details>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap foot">
+  <div><a href="#top" class="logo"><svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#B8FF38"/><path d="M10 25V9l14 16V9" fill="none" stroke="#10110F" stroke-width="3.6" stroke-linejoin="round"/></svg>NEX GROWTH</a>
+  <small>Digital Marketing &amp; Growth &middot; &copy; <span id="year"></span> Nex Growth</small></div>
+  <ul><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li><li><a href="#top">Back to top</a></li></ul>
+ </div>
+</footer>
+
+<button type="button" class="wa" data-wa="Hello Nex Growth, I'd like to ask about your services." aria-label="Message us on WhatsApp">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-.8.8c-.8-.4-1.5-1.1-1.9-1.9l.8-.8-1-2z"/></svg>
+</button>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============ CONFIGURATION ============
+   Set WHATSAPP_NUMBER to your real number in international format,
+   digits only, no "+" or spaces. Example for Egypt: "201001234567".
+   While it is empty, every WhatsApp button shows a notice instead of a broken link. */
+const WHATSAPP_NUMBER = "";
+/* ======================================= */
+
+const $ = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+const toast = $("#toast");
+let tt;
+function notify(msg){
+  toast.textContent = msg; toast.classList.add("on");
+  clearTimeout(tt); tt = setTimeout(() => toast.classList.remove("on"), 5000);
+}
+function openWhatsApp(text){
+  const num = WHATSAPP_NUMBER.replace(/\D/g, "");
+  if(!num){ notify("WhatsApp is not set up yet. The site owner needs to add a number in the WHATSAPP_NUMBER setting."); return false; }
+  window.open("https://wa.me/" + num + "?text=" + encodeURIComponent(text), "_blank", "noopener");
+  return true;
+}
+$$("[data-wa]").forEach(b => b.addEventListener("click", () => openWhatsApp(b.dataset.wa)));
+
+/* mobile menu */
+const burger = $("#burger"), menu = $("#menu");
+function setMenu(open){
+  menu.classList.toggle("open", open);
+  burger.setAttribute("aria-expanded", open);
+  burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+}
+burger.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
+$$("a", menu).forEach(a => a.addEventListener("click", () => setMenu(false)));
+document.addEventListener("keydown", e => { if(e.key === "Escape") setMenu(false); });
+
+/* form */
+const form = $("#form"), status = $("#status");
+const msgs = {name:"Enter your full name.", biz:"Enter your business name.", phone:"Enter a phone or WhatsApp number.", industry:"Choose an industry.", service:"Choose a service."};
+function check(el){
+  const box = el.closest(".f"), err = $(".err", box);
+  let m = "";
+  if(!el.value.trim()) m = msgs[el.name];
+  else if(el.name === "phone" && !/^[+\d][\d\s()-]{6,}$/.test(el.value.trim())) m = "Enter a valid number, digits only.";
+  box.classList.toggle("bad", !!m);
+  el.setAttribute("aria-invalid", !!m);
+  err.textContent = m;
+  return !m;
+}
+const req = $$("[required]", form);
+req.forEach(el => el.addEventListener("blur", () => check(el)));
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const ok = req.map(check);
+  if(ok.includes(false)){ status.textContent = "Please fix the highlighted fields."; status.style.color = "#ff8f8f"; req[ok.indexOf(false)].focus(); return; }
+  const v = n => form.elements[n].value.trim();
+  const text = ["Hello Nex Growth, I'd like to start a conversation.", "",
+    "Name: " + v("name"), "Business: " + v("biz"), "Phone/WhatsApp: " + v("phone"),
+    "Industry: " + v("industry"), "Service needed: " + v("service"),
+    "Goals/message: " + (v("msg") || "-")].join("\n");
+  if(openWhatsApp(text)){
+    status.style.color = "var(--lime)";
+    status.textContent = "WhatsApp is opening. Press Send there to submit your inquiry.";
+  } else {
+    status.style.color = "#ff8f8f";
+    status.textContent = "WhatsApp is not configured yet, so nothing was sent.";
+  }
+});
+
+/* reveal on scroll */
+const rv = $$(".rv");
+if("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches){
+  const io = new IntersectionObserver(es => es.forEach(x => { if(x.isIntersecting){ x.target.classList.add("in"); io.unobserve(x.target); } }), {threshold:.12});
+  rv.forEach(el => io.observe(el));
+} else rv.forEach(el => el.classList.add("in"));
+
+$("#year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
