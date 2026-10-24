@@ -150,6 +150,18 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px;background:var(--bg2
  .cta-row .btn,.banner .btn{width:100%}
  .strip ul{grid-template-columns:1fr}
 }
+.lang{font:inherit;font-weight:700;font-size:.9rem;color:var(--text);background:none;border:1px solid var(--line);border-radius:999px;min-height:42px;padding:0 16px;cursor:pointer;transition:border-color .2s,color .2s}
+.lang:hover{border-color:var(--lime);color:var(--lime)}
+[dir=rtl] body{font-family:"Segoe UI",Tahoma,"Noto Sans Arabic","Noto Naskh Arabic",Arial,sans-serif}
+[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] .logo{letter-spacing:0}
+[dir=rtl] .note{padding-left:0;padding-right:14px;border-left:0;border-right:2px solid var(--lime)}
+[dir=rtl] nav .btn{margin-left:0;margin-right:8px}
+[dir=rtl] .proc li::before{left:auto;right:0}
+[dir=rtl] .proc li::after{left:-8px;right:60px;background:linear-gradient(270deg,var(--lime),var(--line))}
+[dir=rtl] .wa{right:auto;left:16px}
+[dir=rtl] .steps{direction:ltr}
+@media(max-width:860px){[dir=rtl] nav .btn{margin:12px 0 0}}
+@media(max-width:640px){[dir=rtl] .proc li{padding:0 68px 0 0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -169,6 +181,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px;background:var(--bg2
     <li><a href="#process">Our Process</a></li>
     <li><a href="#why">Why Nex Growth</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><button type="button" class="lang" id="lang" lang="ar">العربية</button></li>
     <li><a href="#contact" class="btn btn-p">Let's Talk</a></li>
    </ul>
   </nav>
@@ -307,6 +320,62 @@ const WHATSAPP_NUMBER = "201142070183";
 
 const $ = (s, c = document) => c.querySelector(s);
 const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+
+/* ---------- Arabic / English ---------- */
+let lang = "en";
+const AR = {
+"Services":"الخدمات","Industries":"القطاعات","Our Process":"آلية العمل","Why Nex Growth":"لماذا نيكس جروث","Contact":"تواصل معنا","Let's Talk":"لنتحدث",
+"Turn Your Marketing Into a":"حوّل تسويقك إلى","Growth Engine.":"محرك نمو.",
+"Nex Growth helps businesses build a stronger digital presence, reach the right audience, and turn marketing activity into measurable opportunities.":"تساعد نيكس جروث الشركات على بناء حضور رقمي أقوى، والوصول إلى الجمهور المناسب، وتحويل النشاط التسويقي إلى فرص يمكن قياسها.",
+"Book a Strategy Call":"احجز مكالمة استراتيجية","Explore Our Services":"اكتشف خدماتنا",
+"Focused on practical execution, transparent reporting, and growth goals that fit your business.":"نركّز على التنفيذ العملي، والتقارير الواضحة، وأهداف نمو تناسب نشاطك.",
+"Plan, launch, measure, improve.":"نخطط، نطلق، نقيس، نحسّن.",
+"Each step builds on the data from the last, with scope and deliverables agreed up front.":"كل خطوة تبني على بيانات الخطوة السابقة، مع الاتفاق مسبقًا على النطاق والمخرجات.",
+"Strategy-Led Planning":"تخطيط قائم على الاستراتيجية","Clear Scope and Deliverables":"نطاق ومخرجات واضحة","Measured Campaign Performance":"أداء حملات يمكن قياسه","Cairo & Giza, Egypt":"القاهرة والجيزة، مصر",
+"Practical Marketing Services. One Clear Direction.":"خدمات تسويق عملية. اتجاه واحد واضح.",
+"We build a service mix around your goals, audience, and stage of growth—not a one-size-fits-all checklist.":"نبني مزيج الخدمات حول أهدافك وجمهورك ومرحلة نمو نشاطك، وليس قائمة واحدة تناسب الجميع.",
+"Paid Advertising":"الإعلانات المدفوعة","Campaign planning, Meta Ads management, audience testing, creative testing, and ongoing optimization based on agreed objectives.":"تخطيط الحملات وإدارة إعلانات ميتا واختبار الجمهور واختبار المحتوى الإبداعي والتحسين المستمر وفق الأهداف المتفق عليها.",
+"Social Media Management":"إدارة السوشيال ميديا","Content planning, graphic design, captions, publishing schedules, and consistent communication aligned with your brand.":"تخطيط المحتوى وتصميم الجرافيك وكتابة التعليقات وجداول النشر وتواصل منتظم يتماشى مع علامتك.",
+"Lead Generation":"توليد العملاء المحتملين","Campaigns and inquiry flows designed to attract relevant prospects and help your team follow up more consistently.":"حملات ومسارات استفسار مصممة لجذب العملاء المناسبين ومساعدة فريقك على المتابعة بانتظام أكبر.",
+"Marketing Analytics":"تحليلات التسويق","Campaign reporting, performance indicators, tracking recommendations, and practical insights to support better decisions.":"تقارير الحملات ومؤشرات الأداء وتوصيات التتبع ورؤى عملية تدعم قرارات أفضل.",
+"Creative & Content Planning":"التخطيط الإبداعي والمحتوى","Clear messaging and creative direction to help your brand communicate its offer and make the next action easy to understand.":"رسائل واضحة واتجاه إبداعي يساعد علامتك على توضيح عرضها وتسهيل الخطوة التالية على العميل.",
+"Growth Strategy":"استراتيجية النمو","Prioritization of channels, offers, and experiments based on your business model, available resources, and goals.":"ترتيب أولويات القنوات والعروض والتجارب بحسب نموذج عملك وإمكانياتك وأهدافك.",
+"Different Industries. Business-First Thinking.":"قطاعات مختلفة. تفكير يبدأ من نشاطك.",
+"Our approach adapts to the customer, sales cycle, and objectives of each business. These are examples of the sectors we can work with—not an exclusive list.":"يتكيف أسلوبنا مع العميل ودورة البيع وأهداف كل نشاط. هذه أمثلة على القطاعات التي يمكننا العمل معها، وليست قائمة حصرية.",
+"Healthcare & Clinics":"الرعاية الصحية والعيادات","Build digital visibility and manage relevant inquiries with careful, responsible communication.":"بناء حضور رقمي وإدارة الاستفسارات المهمة بتواصل مسؤول ودقيق.",
+"Construction & Real Estate":"المقاولات والعقارات","Support project inquiries, service awareness, and business-to-business lead generation.":"دعم استفسارات المشروعات والتعريف بالخدمات وتوليد العملاء بين الشركات.",
+"E-commerce & Retail":"التجارة الإلكترونية والتجزئة","Promote products, test campaigns, and support customer acquisition goals.":"الترويج للمنتجات واختبار الحملات ودعم أهداف اكتساب العملاء.",
+"Local & B2B Services":"الخدمات المحلية وخدمات الشركات","Clarify your offer, reach potential customers, and build a more consistent inquiry pipeline.":"توضيح عرضك والوصول إلى العملاء المحتملين وبناء تدفق استفسارات أكثر انتظامًا.",
+"A Simple Process, Built for Action.":"آلية بسيطة، مصممة للتنفيذ.",
+"Discover":"اكتشاف","Understand the business, offer, customers, current activity, and constraints.":"نفهم النشاط والعرض والعملاء والنشاط الحالي والقيود.",
+"Plan":"تخطيط","Set priorities, deliverables, budget, timeline, and success indicators together.":"نحدد معًا الأولويات والمخرجات والميزانية والجدول الزمني ومؤشرات النجاح.",
+"Execute":"تنفيذ","Launch approved campaigns and content with clear ownership and communication.":"نطلق الحملات والمحتوى المعتمد بمسؤوليات واضحة وتواصل مستمر.",
+"Improve":"تحسين","Review results, identify gaps, and agree on evidence-led improvements.":"نراجع النتائج ونحدد الفجوات ونتفق على تحسينات مبنية على الأدلة.",
+"Marketing Should Serve the Business Goal.":"التسويق يجب أن يخدم هدف النشاط.",
+"We focus on useful execution and clear communication—not inflated promises. The right plan depends on your offer, audience, budget, and ability to follow up.":"نركّز على التنفيذ المفيد والتواصل الواضح، وليس الوعود المبالغ فيها. الخطة المناسبة تعتمد على عرضك وجمهورك وميزانيتك وقدرتك على المتابعة.",
+"Transparent Deliverables":"مخرجات شفافة","Know what is included, what is not, and what each stage requires.":"اعرف ما هو متضمن وما هو غير متضمن وما تتطلبه كل مرحلة.",
+"Clear Ad Spend Separation":"فصل واضح لميزانية الإعلانات","Advertising budgets are distinct from agency management fees.":"ميزانيات الإعلانات منفصلة عن أتعاب إدارة الوكالة.",
+"Honest Reporting":"تقارير صادقة","We report what the data shows and do not invent results or case studies.":"نعرض ما تقوله البيانات ولا نختلق نتائج أو دراسات حالة.",
+"Built Around Your Context":"مبنية على ظروفك","Plans are shaped by your market, resources, and sales process.":"تُصمم الخطط حسب سوقك وإمكانياتك وعملية البيع لديك.",
+"Ready to Create Your Next Growth Opportunity?":"جاهز لصنع فرصة النمو القادمة؟",
+"Tell us where your business is today and what you want to achieve. We'll discuss your needs and identify a practical next step.":"أخبرنا أين يقف نشاطك اليوم وما الذي تريد تحقيقه. سنناقش احتياجاتك ونحدد خطوة عملية تالية.",
+"Start a Conversation":"ابدأ المحادثة",
+"Talk to Nex Growth on WhatsApp.":"تواصل مع نيكس جروث على واتساب.",
+"Message us directly with your business and what you want to achieve. We'll reply to discuss a practical next step.":"راسلنا مباشرة بتفاصيل نشاطك وما تريد تحقيقه، وسنرد عليك لنحدد معًا خطوة عملية تالية.",
+"Let's Talk on WhatsApp":"تواصل معنا على واتساب",
+"Common questions.":"أسئلة شائعة.",
+"Do you work with only one industry?":"هل تعملون مع قطاع واحد فقط؟","No. Nex Growth is positioned as a general digital marketing agency. We adapt the plan to the business and its audience rather than limiting the service to one sector.":"لا. نيكس جروث وكالة تسويق رقمي عامة. نكيّف الخطة بحسب النشاط وجمهوره بدلًا من حصر الخدمة في قطاع واحد.",
+"Is the advertising budget included in your fee?":"هل ميزانية الإعلانات مشمولة في أتعابكم؟","No. The advertising budget is separate from management fees. The budget and payment setup should be agreed with the client before campaigns launch.":"لا. ميزانية الإعلانات منفصلة عن أتعاب الإدارة، ويجب الاتفاق عليها وعلى طريقة الدفع مع العميل قبل إطلاق الحملات.",
+"Can you guarantee leads or sales?":"هل تضمنون عملاء محتملين أو مبيعات؟","No responsible agency can guarantee a specific result in every situation. We agree on deliverables and measurement, then use campaign data to improve performance.":"لا. لا توجد وكالة مسؤولة تضمن نتيجة محددة في كل الحالات. نتفق على المخرجات والقياس، ثم نستخدم بيانات الحملات لتحسين الأداء.",
+"Do you have a portfolio or case studies?":"هل لديكم معرض أعمال أو دراسات حالة؟","This page does not claim past client results or display fabricated case studies. We can discuss your needs and define a suitable scope before work begins.":"لا تدّعي هذه الصفحة نتائج عملاء سابقين ولا تعرض دراسات حالة مختلقة. يمكننا مناقشة احتياجاتك وتحديد نطاق مناسب قبل بدء العمل.",
+"Digital Marketing & Growth · ©":"التسويق الرقمي والنمو · ©","Back to top":"العودة للأعلى",
+"Our approach":"أسلوبنا","Main":"التنقل الرئيسي","Nex Growth home":"نيكس جروث - الرئيسية","Message us on WhatsApp":"راسلنا على واتساب","Open menu":"فتح القائمة","Close menu":"إغلاق القائمة",
+"Hello Nex Growth, I'd like to book a strategy call.":"مرحبًا نيكس جروث، أود حجز مكالمة استراتيجية.",
+"Hello Nex Growth, I'd like to ask about your services.":"مرحبًا نيكس جروث، أود الاستفسار عن خدماتكم.",
+"Nex Growth | Digital Marketing & Growth Agency in Cairo & Giza":"نيكس جروث | وكالة تسويق رقمي ونمو في القاهرة والجيزة",
+"DESC":"نيكس جروث وكالة تسويق رقمي في القاهرة والجيزة: إعلانات ميتا، إدارة السوشيال ميديا، توليد العملاء، التحليلات واستراتيجية النمو."
+};
+const T = k => (lang === "ar" && AR[k]) || k;
 const toast = $("#toast");
 let tt;
 function notify(msg){
@@ -319,14 +388,14 @@ function openWhatsApp(text){
   window.open("https://wa.me/" + num + "?text=" + encodeURIComponent(text), "_blank", "noopener");
   return true;
 }
-$$("[data-wa]").forEach(b => b.addEventListener("click", () => openWhatsApp(b.dataset.wa)));
+$$("[data-wa]").forEach(b => b.addEventListener("click", () => openWhatsApp(T(b.dataset.wa))));
 
 /* mobile menu */
 const burger = $("#burger"), menu = $("#menu");
 function setMenu(open){
   menu.classList.toggle("open", open);
   burger.setAttribute("aria-expanded", open);
-  burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  burger.setAttribute("aria-label", T(open ? "Close menu" : "Open menu"));
 }
 burger.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
 $$("a", menu).forEach(a => a.addEventListener("click", () => setMenu(false)));
@@ -338,6 +407,38 @@ if("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: red
   const io = new IntersectionObserver(es => es.forEach(x => { if(x.isIntersecting){ x.target.classList.add("in"); io.unobserve(x.target); } }), {threshold:.12});
   rv.forEach(el => io.observe(el));
 } else rv.forEach(el => el.classList.add("in"));
+
+
+const metaDesc = document.querySelector('meta[name="description"]');
+const origTitle = document.title, origDesc = metaDesc.content;
+const langBtn = $("#lang");
+function setLang(l){
+  lang = l;
+  document.documentElement.lang = l;
+  document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+  const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), nodes = [];
+  let n; while((n = w.nextNode())) nodes.push(n);
+  nodes.forEach(t => {
+    const p = t.parentNode;
+    if(p.closest("script,style,#lang")) return;
+    if(t.__o === undefined) t.__o = t.nodeValue;
+    const key = t.__o.trim();
+    t.nodeValue = (l === "ar" && AR[key]) ? t.__o.replace(key, AR[key]) : t.__o;
+  });
+  $$("[aria-label]").forEach(el => {
+    if(el.id === "burger") return;
+    if(el.dataset.o === undefined) el.dataset.o = el.getAttribute("aria-label");
+    el.setAttribute("aria-label", T(el.dataset.o));
+  });
+  document.title = l === "ar" ? AR[origTitle] : origTitle;
+  metaDesc.content = l === "ar" ? AR.DESC : origDesc;
+  langBtn.textContent = l === "ar" ? "EN" : "العربية";
+  langBtn.lang = l === "ar" ? "en" : "ar";
+  setMenu(menu.classList.contains("open"));
+  try{ localStorage.setItem("lang", l); }catch(e){}
+}
+langBtn.addEventListener("click", () => setLang(lang === "ar" ? "en" : "ar"));
+try{ if(localStorage.getItem("lang") === "ar") setLang("ar"); }catch(e){}
 
 $("#year").textContent = new Date().getFullYear();
 </script>
