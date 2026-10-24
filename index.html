@@ -101,20 +101,8 @@ h1{font-size:clamp(2.4rem,6.6vw,4.6rem);line-height:1.04;letter-spacing:-.035em;
 .btn-d{background:#10110F;color:var(--lime)}
 .btn-d:hover{transform:translateY(-2px);background:#000}
 
-/* form */
+/* contact */
 .form-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
-form{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(22px,4vw,36px);display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.f{display:flex;flex-direction:column;gap:7px}
-.f.full{grid-column:1/-1}
-label{font-weight:600;font-size:.92rem}
-input,select,textarea{font:inherit;color:var(--text);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;min-height:48px;width:100%}
-select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 14px) 21px;background-size:6px 6px;background-repeat:no-repeat;padding-right:38px}
-textarea{min-height:120px;resize:vertical}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,56,.2)}
-.err{color:#ff8f8f;font-size:.85rem;min-height:1.2em}
-.f.bad input,.f.bad select{border-color:#ff8f8f}
-.hint{grid-column:1/-1;color:var(--muted);font-size:.9rem}
-#status{grid-column:1/-1;font-size:.92rem;min-height:1.3em}
 .side p{color:var(--muted);margin-top:16px}
 
 /* faq */
@@ -159,7 +147,6 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px;background:var(--bg2
  section{padding:60px 0}
  .g3,.g4,.proc{grid-template-columns:1fr}
  .proc li{padding:0 0 0 68px;min-height:56px}
- form{grid-template-columns:1fr}
  .cta-row .btn,.banner .btn{width:100%}
  .strip ul{grid-template-columns:1fr}
 }
@@ -276,21 +263,11 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px;background:var(--bg2
 
 <section id="contact" style="padding-top:0">
  <div class="wrap form-grid">
-  <div class="side rv"><h2>Tell Us About Your Business.</h2>
-  <p>Share a few details and choose how you'd like to continue. We'll use your information to respond to your inquiry.</p></div>
-  <form id="form" novalidate class="rv">
-   <div class="f"><label for="name">Full name *</label><input id="name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
-   <div class="f"><label for="biz">Business name *</label><input id="biz" name="biz" autocomplete="organization" required><span class="err" aria-live="polite"></span></div>
-   <div class="f full"><label for="phone">Phone / WhatsApp number *</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required><span class="err" aria-live="polite"></span></div>
-   <div class="f"><label for="industry">Industry *</label>
-    <select id="industry" name="industry" required><option value="">Select industry</option><option>Healthcare &amp; Clinics</option><option>Construction &amp; Real Estate</option><option>E-commerce &amp; Retail</option><option>Local Services</option><option>B2B Services</option><option>Education</option><option>Hospitality &amp; Food</option><option>Other</option></select><span class="err" aria-live="polite"></span></div>
-   <div class="f"><label for="service">Service needed *</label>
-    <select id="service" name="service" required><option value="">Select service</option><option>Paid Advertising</option><option>Social Media Management</option><option>Lead Generation</option><option>Marketing Analytics</option><option>Growth Strategy</option><option>Not Sure Yet</option></select><span class="err" aria-live="polite"></span></div>
-   <div class="f full"><label for="msg">Business goals / message (optional)</label><textarea id="msg" name="msg"></textarea></div>
-   <p class="hint">Clicking the button opens WhatsApp with your details filled in. Press Send in WhatsApp to submit your inquiry; nothing is sent until you do.</p>
-   <button type="submit" class="btn btn-p full" style="grid-column:1/-1">Send via WhatsApp</button>
-   <p id="status" role="status"></p>
-  </form>
+  <div class="side rv"><h2>Talk to Nex Growth on WhatsApp.</h2>
+  <p>Message us directly with your business and what you want to achieve. We'll reply to discuss a practical next step.</p></div>
+  <div class="card rv">
+   <a href="https://wa.me/201142070183" target="_blank" rel="noopener noreferrer" class="btn btn-p">Let's Talk on WhatsApp</a>
+  </div>
  </div>
 </section>
 
@@ -323,9 +300,9 @@ footer{border-top:1px solid var(--line);padding:40px 0 48px;background:var(--bg2
 <script>
 /* ============ CONFIGURATION ============
    Set WHATSAPP_NUMBER to your real number in international format,
-   digits only, no "+" or spaces. Example for Egypt: "201001234567".
+   digits only, no "+" or spaces. Egyptian mobile 01142070183 becomes "201142070183".
    While it is empty, every WhatsApp button shows a notice instead of a broken link. */
-const WHATSAPP_NUMBER = "+201142070183";
+const WHATSAPP_NUMBER = "201142070183";
 /* ======================================= */
 
 const $ = (s, c = document) => c.querySelector(s);
@@ -354,39 +331,6 @@ function setMenu(open){
 burger.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
 $$("a", menu).forEach(a => a.addEventListener("click", () => setMenu(false)));
 document.addEventListener("keydown", e => { if(e.key === "Escape") setMenu(false); });
-
-/* form */
-const form = $("#form"), status = $("#status");
-const msgs = {name:"Enter your full name.", biz:"Enter your business name.", phone:"Enter a phone or WhatsApp number.", industry:"Choose an industry.", service:"Choose a service."};
-function check(el){
-  const box = el.closest(".f"), err = $(".err", box);
-  let m = "";
-  if(!el.value.trim()) m = msgs[el.name];
-  else if(el.name === "phone" && !/^[+\d][\d\s()-]{6,}$/.test(el.value.trim())) m = "Enter a valid number, digits only.";
-  box.classList.toggle("bad", !!m);
-  el.setAttribute("aria-invalid", !!m);
-  err.textContent = m;
-  return !m;
-}
-const req = $$("[required]", form);
-req.forEach(el => el.addEventListener("blur", () => check(el)));
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  const ok = req.map(check);
-  if(ok.includes(false)){ status.textContent = "Please fix the highlighted fields."; status.style.color = "#ff8f8f"; req[ok.indexOf(false)].focus(); return; }
-  const v = n => form.elements[n].value.trim();
-  const text = ["Hello Nex Growth, I'd like to start a conversation.", "",
-    "Name: " + v("name"), "Business: " + v("biz"), "Phone/WhatsApp: " + v("phone"),
-    "Industry: " + v("industry"), "Service needed: " + v("service"),
-    "Goals/message: " + (v("msg") || "-")].join("\n");
-  if(openWhatsApp(text)){
-    status.style.color = "var(--lime)";
-    status.textContent = "WhatsApp is opening. Press Send there to submit your inquiry.";
-  } else {
-    status.style.color = "#ff8f8f";
-    status.textContent = "WhatsApp is not configured yet, so nothing was sent.";
-  }
-});
 
 /* reveal on scroll */
 const rv = $$(".rv");
